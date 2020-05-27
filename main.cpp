@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "Customer.h"
-
+/*
 int main() {
 
     Customer customer("Olivier");
@@ -12,4 +12,4 @@ int main() {
     std::cout << customer.statement() << std::endl;
 
     return 0;
-}
+}*/
