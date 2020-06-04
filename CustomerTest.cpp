@@ -4,8 +4,8 @@
 
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include "Customer.h"
-#include "Movie.h"
+#include "Customer_Rental/Customer.h"
+#include "Movies/Movie.h"
 
 TEST(CustomerTest, statement){
 

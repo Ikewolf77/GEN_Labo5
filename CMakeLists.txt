@@ -36,11 +36,11 @@ endif()
 include_directories(.)
 
 add_executable(src
-        Customer.cpp
-        Customer.h
+        Customer_Rental/Customer.cpp
+        Customer_Rental/Customer.h
         main.cpp
-        Movie.cpp
-        Movie.h
-        Rental.h CustomerTest.cpp)
+        Movies/Movie.cpp
+        Movies/Movie.h
+        Customer_Rental/Rental.h CustomerTest.cpp)
 
 target_link_libraries(src gtest gmock_main)
