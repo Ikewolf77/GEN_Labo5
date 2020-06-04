@@ -2,6 +2,7 @@
 #ifndef RENTAL_H
 #define RENTAL_H
 #include "Movies/Movie.h"
+#include <string>
 
 class Rental {
 public:
@@ -9,6 +10,8 @@ public:
 
     int getDaysRented() const;
     const Movie& getMovie() const;
+
+    std::string getRentalFigures(double &totalAmount, int &frequentRenterPoints) const;
 
 private:
     Movie _movie;

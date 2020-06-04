@@ -41,6 +41,6 @@ add_executable(src
         main.cpp
         Movies/Movie.cpp
         Movies/Movie.h
-        Customer_Rental/Rental.h CustomerTest.cpp)
+        Customer_Rental/Rental.h CustomerTest.cpp Customer_Rental/Rental.cpp)
 
 target_link_libraries(src gtest gmock_main)
