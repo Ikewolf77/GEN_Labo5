@@ -10,7 +10,7 @@ using namespace std;
 string Rental::getFigures(double &totalAmount, int &frequentRenterPoints) const {
 
     ostringstream result;
-    double thisAmount = getMovie().getMovieAmount(frequentRenterPoints,getDaysRented());
+    double thisAmount = getMovie().getAmount(frequentRenterPoints, getDaysRented());
 
     // show figures for this rental
     result << "\t" << getMovie().getTitle() << "\t" << thisAmount << "\n";

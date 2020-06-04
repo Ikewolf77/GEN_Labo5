@@ -4,7 +4,7 @@ const int Movie::CHILDRENS;
 const int Movie::REGULAR;
 const int Movie::NEW_RELEASE;
 
-double Movie::getMovieAmount(int &frequentRenterPoints, int daysRented) const { // determine amounts for each line
+double Movie::getAmount(int &frequentRenterPoints, int daysRented) const { // determine amounts for each line
 
     double amount = 0;
 
