@@ -2,38 +2,41 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <string>
+#include <memory>
+#include <utility>
+#include "MovieType.h"
 
 class Movie {
 public:
-    static const int CHILDRENS   = 2;
-    static const int REGULAR     = 0;
-    static const int NEW_RELEASE = 1;
 
-    Movie( const std::string& title, int priceCode = REGULAR );
+    Movie( std::string  title, std::shared_ptr<MovieType> priceCode = std::make_shared<Regular>());
 
-    int getPriceCode() const;
-    void setPriceCode( int arg );
+    std::shared_ptr<MovieType> getPriceCode() const;
+    void setPriceCode( std::shared_ptr<MovieType> arg );
     std::string getTitle() const;
     double getAmount(int &frequentRenterPoints, int daysRented) const;
 
 private:
     std::string _title;
-    int _priceCode;
+    std::shared_ptr<MovieType> _priceCode;
 };
 
 inline Movie::
-Movie( const std::string& title, int priceCode )
-        : _title( title )
-        , _priceCode( priceCode )
+Movie( std::string title, std::shared_ptr<MovieType> priceCode )
+        : _title(std::move( title ))
+        , _priceCode(std::move( priceCode ))
 {}
 
-inline int Movie::
-getPriceCode() const { return _priceCode; }
+inline std::shared_ptr<MovieType> Movie::getPriceCode() const {
+    return _priceCode;
+}
 
-inline void Movie::
-setPriceCode( int arg ) { _priceCode = arg; }
+inline void Movie::setPriceCode( std::shared_ptr<MovieType> arg ) {
+    _priceCode = std::move(arg);
+}
 
-inline std::string Movie::
-getTitle() const { return _title; }
+inline std::string Movie::getTitle() const {
+    return _title;
+}
 
 #endif // MOVIE_H

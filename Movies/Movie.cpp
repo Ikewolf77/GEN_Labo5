@@ -1,13 +1,8 @@
 #include "Movie.h"
 
-const int Movie::CHILDRENS;
-const int Movie::REGULAR;
-const int Movie::NEW_RELEASE;
-
 double Movie::getAmount(int &frequentRenterPoints, int daysRented) const { // determine amounts for each line
 
-    double amount = 0;
-
+    /*
     switch ( getPriceCode() ) {
         case Movie::REGULAR:
             amount += 2;
@@ -24,11 +19,10 @@ double Movie::getAmount(int &frequentRenterPoints, int daysRented) const { // de
             if (daysRented > 3 )
                 amount += (daysRented - 3 ) * 1.5;
             break;
-    }
+    }*/
 
     // add frequent renter points
     frequentRenterPoints++;
 
-    return amount;
+    return getPriceCode()->getAmount(frequentRenterPoints,daysRented);
 }
- 
