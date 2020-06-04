@@ -16,8 +16,6 @@ public:
 private:
     Movie _movie;
     int _daysRented;
-
-    double getMovieAmount(int &frequentRenterPoints) const;
 };
 
 inline Rental::

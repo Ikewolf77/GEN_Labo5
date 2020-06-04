@@ -14,6 +14,7 @@ public:
     int getPriceCode() const;
     void setPriceCode( int arg );
     std::string getTitle() const;
+    double getMovieAmount(int &frequentRenterPoints, int daysRented) const;
 
 private:
     std::string _title;
