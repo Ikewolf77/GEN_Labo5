@@ -7,7 +7,7 @@
 
 using namespace std;
 
-string Rental::getRentalFigures(double &totalAmount, int &frequentRenterPoints) const {
+string Rental::getFigures(double &totalAmount, int &frequentRenterPoints) const {
 
     ostringstream result;
     double thisAmount = 0;

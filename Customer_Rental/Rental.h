@@ -11,7 +11,7 @@ public:
     int getDaysRented() const;
     const Movie& getMovie() const;
 
-    std::string getRentalFigures(double &totalAmount, int &frequentRenterPoints) const;
+    std::string getFigures(double &totalAmount, int &frequentRenterPoints) const;
 
 private:
     Movie _movie;

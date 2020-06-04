@@ -17,7 +17,7 @@ string Customer::statement()
     result << "Rental Record for " << getName() << "\n";
 
     for (auto iter = _rentals.begin() ; iter != _rentals.end(); ++iter ) {
-        result << iter->getRentalFigures(totalAmount, frequentRenterPoints);
+        result << iter->getFigures(totalAmount, frequentRenterPoints);
     }
 
     // add footer lines
