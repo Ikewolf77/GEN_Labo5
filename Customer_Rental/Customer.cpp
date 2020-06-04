@@ -17,7 +17,7 @@ string Customer::statement()
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
     for ( ; iter != iter_end; ++iter ) {
-        getRentalFigures(totalAmount, frequentRenterPoints, iter, result);
+        result << getRentalFigures(totalAmount, frequentRenterPoints, iter);
     }
     // add footer lines
     result << "Amount owed is " << totalAmount << "\n";
@@ -26,8 +26,9 @@ string Customer::statement()
     return result.str();
 }
 
-void Customer::getRentalFigures(double &totalAmount, int &frequentRenterPoints, vector<Rental>::iterator &iter,
-                                ostringstream &result) const {
+string Customer::getRentalFigures(double &totalAmount, int &frequentRenterPoints, vector<Rental>::iterator &iter) const {
+
+    ostringstream result;
     double thisAmount = 0;
     Rental each = *iter;
 
@@ -58,4 +59,6 @@ void Customer::getRentalFigures(double &totalAmount, int &frequentRenterPoints, 
     result << "\t" << each.getMovie().getTitle() << "\t"
            << thisAmount << "\n";
     totalAmount += thisAmount;
+
+    return result.str();
 }
