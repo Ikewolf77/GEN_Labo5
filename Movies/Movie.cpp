@@ -16,6 +16,8 @@ double Movie::getAmount(int &frequentRenterPoints, int daysRented) const { // de
             break;
         case Movie::NEW_RELEASE:
             amount += daysRented * 3;
+            if(daysRented > 1)
+                frequentRenterPoints++;
             break;
         case Movie::CHILDRENS:
             amount += 1.5;
@@ -26,9 +28,6 @@ double Movie::getAmount(int &frequentRenterPoints, int daysRented) const { // de
 
     // add frequent renter points
     frequentRenterPoints++;
-    // add bonus for a two day new release rental
-    if ((getPriceCode() == Movie::NEW_RELEASE ) && daysRented > 1 )
-        frequentRenterPoints++;
 
     return amount;
 }
