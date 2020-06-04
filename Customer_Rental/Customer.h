@@ -17,6 +17,9 @@ public:
 private:
     std::string _name;
     std::vector< Rental > _rentals;
+
+    void getRentalFigures(double &totalAmount, int &frequentRenterPoints, std::vector<Rental>::iterator &iter,
+                          std::ostringstream &result) const;
 };
 
 inline Customer::
