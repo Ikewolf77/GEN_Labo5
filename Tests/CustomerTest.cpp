@@ -49,3 +49,15 @@ TEST(MovieTypeTestChildren, getAmount){
     EXPECT_EQ(c.getAmount(FrequentRenterPoints,6),6);
     EXPECT_EQ(FrequentRenterPoints,0);
 }
+
+TEST(MovieTypeTestNewRelease, getAmount){
+
+    NewRelease n;
+    int FrequentRenterPoints = 0;
+
+    EXPECT_EQ(n.getAmount(FrequentRenterPoints,0),0);
+    EXPECT_EQ(n.getAmount(FrequentRenterPoints,1),3);
+    EXPECT_EQ(n.getAmount(FrequentRenterPoints,2),6);
+    EXPECT_EQ(n.getAmount(FrequentRenterPoints,3),9);
+    EXPECT_EQ(FrequentRenterPoints,2);
+}
