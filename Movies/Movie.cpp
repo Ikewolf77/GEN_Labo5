@@ -5,5 +5,5 @@ double Movie::getAmount(int &frequentRenterPoints, int daysRented) const { // de
     // add frequent renter points
     frequentRenterPoints++;
 
-    return getPriceCode()->getAmount(frequentRenterPoints,daysRented);
+    return _priceCode->getAmount(frequentRenterPoints,daysRented);
 }
