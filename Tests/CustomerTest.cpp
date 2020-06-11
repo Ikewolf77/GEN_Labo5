@@ -61,3 +61,18 @@ TEST(MovieTypeTestNewRelease, getAmount){
     EXPECT_EQ(n.getAmount(FrequentRenterPoints,3),9);
     EXPECT_EQ(FrequentRenterPoints,2);
 }
+
+class NewReleaseMock : public NewRelease {
+public:
+    MOCK_METHOD(double, getAmount, (int &frequentRenterPoints, int daysRented));
+};
+
+TEST(Movie, getAmount){
+
+    Movie m("Avengers", std::make_shared<NewReleaseMock>());
+    int frequentRenterPoints = 0;
+
+    EXPECT_EQ(m.getTitle(),"Avengers");
+    EXPECT_EQ(m.getAmount(frequentRenterPoints,0), 0);
+
+}
