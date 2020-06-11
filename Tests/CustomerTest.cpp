@@ -10,6 +10,7 @@
 
 #include <memory>
 
+
 TEST(CustomerTest, statement){
 
     Customer customer("Olivier");
@@ -23,4 +24,16 @@ TEST(CustomerTest, statement){
                                     "Snow White\t1.5\n"
                                     "Amount owed is 26\n"
                                     "You earned 4 frequent renter points");
+}
+
+TEST(MovieTypeTestRegular, getAmount){
+
+    Regular r;
+    int FrequentRenterPoints = 0;
+
+    EXPECT_EQ(r.getAmount(FrequentRenterPoints,0),2);
+    EXPECT_EQ(r.getAmount(FrequentRenterPoints,1),2);
+    EXPECT_EQ(r.getAmount(FrequentRenterPoints,2),2);
+    EXPECT_EQ(r.getAmount(FrequentRenterPoints,3),3.5);
+    EXPECT_EQ(FrequentRenterPoints,0);
 }
