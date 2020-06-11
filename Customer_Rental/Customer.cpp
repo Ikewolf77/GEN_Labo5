@@ -14,7 +14,7 @@ string Customer::statement()
     int frequentRenterPoints = 0;
     ostringstream result;
 
-    result << "Rental Record for " << getName() << "\n";
+    result << "Rental Record for " << _name << "\n";
 
     for (auto & _rental : _rentals) {
         result << _rental.getFigures(totalAmount, frequentRenterPoints);
