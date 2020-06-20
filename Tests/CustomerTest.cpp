@@ -107,3 +107,22 @@ TEST(Movie, getAmountRegular){
 
 }
 
+class MovieMock : public Movie {
+public:
+    MOCK_METHOD(double, getAmount, (int &frequentRenterPoints, int daysRented));
+    MOCK_METHOD(std::string, getTitle, ());
+};
+
+TEST(Rental, getFigures){
+
+    Movie m("Generic film", std::make_shared<RegularMock>());
+    Rental r(m,5);
+    int frequentRenterPoints = 0;
+    double totalAmount = 0;
+
+    EXPECT_EQ(r.getMovie().getTitle(),m.getTitle());
+    EXPECT_EQ(r.getDaysRented(),5);
+    EXPECT_EQ(r.getFigures(totalAmount,frequentRenterPoints),"\tGeneric film\t0\n");
+
+}
+
