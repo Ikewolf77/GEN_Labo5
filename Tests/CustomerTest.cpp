@@ -67,7 +67,7 @@ public:
     MOCK_METHOD(double, getAmount, (int &frequentRenterPoints, int daysRented));
 };
 
-TEST(Movie, getAmount){
+TEST(Movie, getAmountNewRelease){
 
     Movie m("Avengers", std::make_shared<NewReleaseMock>());
     int frequentRenterPoints = 0;
@@ -76,3 +76,34 @@ TEST(Movie, getAmount){
     EXPECT_EQ(m.getAmount(frequentRenterPoints,0), 0);
 
 }
+
+class ChildrenMock : public Children {
+public:
+    MOCK_METHOD(double, getAmount, (int &frequentRenterPoints, int daysRented));
+};
+
+TEST(Movie, getAmountChildren){
+
+    Movie m("TeleTobbies", std::make_shared<ChildrenMock>());
+    int frequentRenterPoints = 0;
+
+    EXPECT_EQ(m.getTitle(),"TeleTobbies");
+    EXPECT_EQ(m.getAmount(frequentRenterPoints,0), 0);
+
+}
+
+class RegularMock : public Regular {
+public:
+    MOCK_METHOD(double, getAmount, (int &frequentRenterPoints, int daysRented));
+};
+
+TEST(Movie, getAmountRegular){
+
+    Movie m("Generic film", std::make_shared<RegularMock>());
+    int frequentRenterPoints = 0;
+
+    EXPECT_EQ(m.getTitle(),"Generic film");
+    EXPECT_EQ(m.getAmount(frequentRenterPoints,0), 0);
+
+}
+
